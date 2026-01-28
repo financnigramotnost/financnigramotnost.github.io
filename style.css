@@ -12,15 +12,21 @@ body, html {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
     /* Použije soubor back.jpg, který nahraješ do repozitáře */
-    background: url('background.jpg') center/cover no-repeat;
+    background: url('back.jpg') center/cover no-repeat;
     filter: brightness(0.3); /* Ztmavení pro vyniknutí záře */
     z-index: -1;
+}
+
+.content {
+    /* Přesunuli jsme obsah nahoru, aby nebyl úplně na středu (dle původního requestu) */
+    position: relative;
+    z-index: 1;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 40px; /* Větší mezera mezi průhlednými okny */
 }
 
 .glow-btn {
@@ -30,20 +36,25 @@ body, html {
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* NASTAVENÍ PRŮHLEDNÉHO POZADÍ */
+    background: transparent; 
+    
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Jemný bílý okraj */
     text-align: center;
     
-    /* ZÁKLADNÍ GLOW */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    /* ZÁKLADNÍ GLOW TEXTU */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    
+    /* Původní box-shadow už nepotřebujeme, když je pozadí pryč */
+    box-shadow: none; 
     transition: all 0.4s ease;
 }
 
 .glow-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    /* SILNĚJŠÍ GLOW PŘI HOVERU */
-    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6); /* Zelenkavý glow */
-    border-color: rgba(0, 255, 136, 0.5);
+    /* Při najetí myši se okraj a text silněji rozzáří */
+    border-color: rgba(0, 255, 136, 0.8);
+    background: rgba(0, 255, 136, 0.05); /* Jemný nádech zelené */
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
     transform: translateY(-5px);
 }
 
@@ -53,4 +64,3 @@ body, html {
         grid-template-columns: 1fr;
     }
 }
-
