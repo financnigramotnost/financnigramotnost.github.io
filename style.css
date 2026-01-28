@@ -2,84 +2,80 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #000;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #000; /* Pojistka, kdyby se obrázek nenačetl */
+    font-family: 'Segoe UI', sans-serif;
     color: white;
     overflow-x: hidden;
 }
 
-/* Tvůj wallpaper back.jpg */
+/* AUTOMATICKÉ POUŽITÍ OBRÁZKU back.jpg */
 .bg {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: url('back.jpg') center/cover no-repeat;
-    filter: brightness(0.25); /* Ztmavení, aby okna zářila */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('back.jpg') center center / cover no-repeat;
+    filter: brightness(30%); /* Ztmavení, aby text svítil */
     z-index: -1;
 }
 
-.container {
-    max-width: 1100px;
+.main-container {
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 80px 20px;
+    padding: 10vh 20px;
     text-align: center;
 }
 
-.main-title {
-    font-size: 2.5rem;
-    letter-spacing: 6px;
-    margin-bottom: 60px;
+.header {
+    font-size: 3rem;
+    letter-spacing: 10px;
+    margin-bottom: 50px;
 }
 
-.glow-text {
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+.glow {
+    color: #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
 }
 
-.windows-grid {
+.panel-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 30px;
 }
 
-/* SVÍTÍCÍ OKNA MÍSTO TLAČÍTEK */
-.glow-window {
+/* STYL OKEN (PANELŮ) */
+.window {
     display: block;
     text-decoration: none;
     color: white;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: left;
-    backdrop-filter: blur(10px); /* Skleněný efekt */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    padding: 40px 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
 }
 
-.glow-window:hover {
-    background: rgba(255, 255, 255, 0.07);
+.window:hover {
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 35px rgba(255, 255, 255, 0.2);
-    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
 }
 
-.glow-window h3 {
-    margin: 0 0 15px 0;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+h2 {
+    margin: 0 0 10px 0;
+    letter-spacing: 3px;
 }
 
-.glow-window p {
+p {
     margin: 0;
-    line-height: 1.6;
-    opacity: 0.7;
-    font-size: 0.95rem;
+    opacity: 0.6;
+    font-size: 0.9rem;
 }
 
-/* Responzivita pro mobily */
-@media (max-width: 800px) {
-    .windows-grid {
-        grid-template-columns: 1fr;
-    }
+/* Mobilní verze */
+@media (max-width: 700px) {
+    .panel-grid { grid-template-columns: 1fr; }
 }
