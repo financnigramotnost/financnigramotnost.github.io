@@ -4,21 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finanční gramotnost</title>
-    <!-- Propojení s CSS souborem -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Veškerý design je přímo zde */
+        body, html {
+            margin: 0; height: 100%; display: flex; justify-content: center; align-items: center;
+            background: #0a0a0a; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden;
+        }
+
+        /* Pozadí využívající tvůj soubor background.jpg */
+        .bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('background.jpg') center/cover no-repeat;
+            filter: brightness(0.35);
+            z-index: -1;
+        }
+
+        .grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; z-index: 1;
+        }
+
+        /* STYL PRŮHLEDNÝCH OKEN BEZ POZADÍ */
+        .glow-btn {
+            text-decoration: none; color: white; padding: 35px 60px; font-size: 1.2rem; font-weight: bold;
+            border-radius: 12px; background: transparent; 
+            border: 1px solid rgba(255, 255, 255, 0.4); 
+            text-align: center; text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); 
+            transition: all 0.2s ease-out; /* RYCHLEJŠÍ REAKCE NA HOVER */
+            min-width: 180px;
+            /* Tento display block zajistí, že celý box je "hittbox" */
+            display: block; 
+        }
+
+        .glow-btn:hover {
+            /* Při najetí myši se okraj a text VELMI RYCHLE rozzáří zeleně */
+            border-color: rgba(0, 255, 136, 1);
+            background: rgba(0, 255, 136, 0.1); 
+            text-shadow: 0 0 20px rgba(0, 255, 136, 1);
+            transform: scale(1.03); /* Mírné zvětšení ukáže, že je to aktivní */
+            cursor: pointer;
+        }
+
+        /* Mobilní optimalizace */
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; gap: 20px; }
+            .glow-btn { padding: 25px 40px; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Kontejner pro obrázek na pozadí -->
     <div class="bg"></div>
 
-    <!-- Hlavní obsah stránky s mřížkou tlačítek -->
-    <div class="content">
-        <div class="grid">
-            <a href="https://fgdluhy.github.io" class="glow-btn">Dluhy</a>
-            <a href="https://fgrozpocet.github.io" class="glow-btn">Rozpočet</a>
-            <a href="https://sporeni.github.io" class="glow-btn">Spoření</a>
-            <a href="https://fgobecne.github.io" class="glow-btn">Obecné</a>
-        </div>
+    <div class="grid">
+        <a href="https://fgdluhy.github.io" class="glow-btn">Dluhy</a>
+        <a href="https://fgrozpocet.github.io" class="glow-btn">Rozpočet</a>
+        <a href="https://sporeni.github.io" class="glow-btn">Spoření</a>
+        <a href="https://fgobecne.github.io" class="glow-btn">Obecné</a>
     </div>
 </body>
 </html>
